@@ -36,5 +36,5 @@ jobs:
         with:
           app-name: dynamic-event-backend
           slot-name: 'production'
-          publish-profile: ${{secrets.AZURE_BACKEND_PUBLISH_PROFILE}}
+          publish-profile: ${{secrets.BACKEND_PROFILE}}
           package: ./backend
