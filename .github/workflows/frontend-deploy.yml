@@ -22,14 +22,21 @@ jobs:
         working-directory: ./frontend
         run: npm install
 
+      - name: Run tests
+        run: npm run test
+        continue-on-error: false
+
       - name: Build the frontend
+        if: success()
         working-directory: ./frontend
         run: npm run build
     
       - name: Ensure Serve is Installed
+        if: success()
         run: npm install -g serve
         
       - name: Deploy to Azure App Service
+        if: success()
         uses: azure/webapps-deploy@v2
         with:
           app-name: GitHubInstance  # Make sure this matches the frontend App Service name
